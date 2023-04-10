@@ -1,7 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Parqueadero') }}
+        <h2
+            class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight flex items-center justify-between">
+            {{ __('Vehículos') }}
+
+            <a href="{{ route('vehicles.create') }}" class="text-green-400">Registrar</a>
         </h2>
     </x-slot>
 
@@ -25,6 +28,9 @@
                                 Hora Entrada
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Finalizar
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Acciones
                             </th>
                         </tr>
@@ -33,22 +39,33 @@
                         @foreach ($vehicles as $vehicle)
                             <tr
                                 class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <td scope="row"
-                                    class="px-6 py-4 dark:text-white">
+                                <td scope="row" class="px-6 py-4 dark:text-white">
                                     {{ $vehicle->type }}
                                 </td>
                                 <td class="px-6 py-4 dark:text-white">
                                     {{ $vehicle->plate }}
                                 </td>
                                 <td class="px-6 py-4 dark:text-white">
-                                    {{ $vehicle->start_date }}
+                                    {{ \Carbon\Carbon::parse($vehicle->start_date)->format('d-m-Y') }}
                                 </td>
                                 <td class="px-6 py-4 dark:text-white">
                                     {{ $vehicle->start_time }}
                                 </td>
                                 <td class="px-6 py-4">
                                     <a href="#"
+                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Marcar
+                                        Salida</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="{{ route('vehicles.edit', $vehicle) }}"
                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
+                                    <form action="{{ route('vehicles.destroy', $vehicle) }}" method="POST"
+                                        class="text-red-400">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" value="Eliminar" class="text-red-400"
+                                            onclick="return confirm('¿Está seguro de eliminar este vehículo?')">
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

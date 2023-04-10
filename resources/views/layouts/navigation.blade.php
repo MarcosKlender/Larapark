@@ -17,7 +17,7 @@
                     </x-nav-link>
                     
                     <x-nav-link :href="route('vehicles.index')" :active="request()->routeIs('vehicles.*')">
-                        {{ __('Parqueadero') }}
+                        {{ __('Vehículos') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -76,7 +76,7 @@
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('vehicles.index')" :active="request()->routeIs('vehicles.*')">
-                {{ __('Parqueadero') }}
+                {{ __('Vehículos') }}
             </x-responsive-nav-link>
         </div>
 
