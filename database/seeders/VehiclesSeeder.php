@@ -12,7 +12,7 @@ class VehiclesSeeder extends Seeder
     public function run(): void
     {
         DB::table('vehicles')->insert([
-            'type' => 'Moto',
+            'type' => 'MOTO',
             'plate' => 'JD223P',
             'start_date' => Carbon::now()->format('Y-m-d'),
             'start_time' => Carbon::now()->format('H:i:s'),
@@ -21,11 +21,11 @@ class VehiclesSeeder extends Seeder
             'total_time' => null,
             'final_cost' => null,
             'created_by' => 'Administrador',
-            'is_parked' => 'true',
+            'is_parked' => 'TRUE',
         ]);
 
         DB::table('vehicles')->insert([
-            'type' => 'Liviano',
+            'type' => 'LIVIANO',
             'plate' => 'PDF9338',
             'start_date' => Carbon::now()->format('Y-m-d'),
             'start_time' => Carbon::now()->format('H:i:s'),
@@ -34,7 +34,7 @@ class VehiclesSeeder extends Seeder
             'total_time' => null,
             'final_cost' => null,
             'created_by' => 'Administrador',
-            'is_parked' => 'false',
+            'is_parked' => 'FALSE',
         ]);
     }
 }

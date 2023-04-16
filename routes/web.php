@@ -32,5 +32,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
+Route::post('/vehicles/close' , [VehiclesController::class, 'close'])->name('vehicles.close');
 Route::resource('vehicles', VehiclesController::class);
 Route::resource('types', TypesController::class);

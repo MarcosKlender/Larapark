@@ -16,7 +16,7 @@
 
                     <div class="text-white grid lg:grid-cols-2 gap-3">
                         <div>
-                            <label>Tipo de Vehículo</label>
+                            <label class="text-black dark:text-white">Tipo de Vehículo</label>
                             <span class="ml-3 text-red-400">
                                 @error('type')
                                     *{{ $message }}
@@ -30,7 +30,7 @@
                         </div>
 
                         <div>
-                            <label>Placa</label>
+                            <label class="text-black dark:text-white">Placa</label>
                             <span class="ml-3 text-red-400">
                                 @error('plate')
                                     *{{ $message }}
@@ -41,7 +41,7 @@
                         </div>
 
                         <div>
-                            <label>Fecha de Ingreso</label>
+                            <label class="text-black dark:text-white">Fecha de Ingreso</label>
                             <span class="ml-3 text-red-400">
                                 @error('start_date')
                                     *{{ $message }}
@@ -53,7 +53,7 @@
                         </div>
 
                         <div>
-                            <label>Fecha de Ingreso</label>
+                            <label class="text-black dark:text-white">Fecha de Ingreso</label>
                             <span class="ml-3 text-red-400">
                                 @error('start_time')
                                     *{{ $message }}

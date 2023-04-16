@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreVehiclesRequest;
-use App\Http\Requests\UpdateVehiclesRequest;
 use App\Models\Vehicles;
 use Illuminate\Http\Request;
 
 class VehiclesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return view('vehicles.index', [
@@ -19,17 +14,11 @@ class VehiclesController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create(Vehicles $vehicle)
     {
         return view('vehicles.create', ['vehicle' => $vehicle]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -53,25 +42,16 @@ class VehiclesController extends Controller
         return redirect()->route('vehicles.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Vehicles $vehicles)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Vehicles $vehicle)
     {
         return view('vehicles.edit', ['vehicle' => $vehicle]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Vehicles $vehicle)
     {
         $request->validate([
@@ -93,12 +73,27 @@ class VehiclesController extends Controller
         return redirect()->route('vehicles.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Vehicles $vehicle)
     {
         $vehicle->delete();
+
+        return back();
+    }
+
+    public function close(Request $request)
+    {
+        $vehicle = Vehicles::find($request->id);
+
+        $total_hours = substr((int)$request->total_time, 0, 2) + 1;
+        $total_cost = $total_hours * 1;
+
+        $vehicle->update([
+            'end_date' => $request->end_date,
+            'end_time' => $request->end_time,
+            'total_time' => $request->total_time,
+            'final_cost' => $total_cost,
+            'is_parked' => $request->is_parked,
+        ]);
 
         return back();
     }
