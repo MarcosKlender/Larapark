@@ -8,8 +8,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
                 <form action="{{ route('vehicles.store') }}" method="POST">
                     @csrf
                     <div class="text-white grid lg:grid-cols-2 gap-3">
@@ -57,7 +56,7 @@
                                 @enderror
                             </span>
                             <input type="time" name="start_time"
-                                class="text-black rounded border-gray-200 w-full mb-4" step="2"
+                                class="text-black rounded border-gray-200 w-full mb-4" step="1"
                                 value="{{ \Carbon\Carbon::now()->format('H:i:s') }}" readonly>
                         </div>
 
@@ -65,13 +64,19 @@
                     </div>
 
                     <div class="mt-4 mb-4 flex items-center justify-between">
-                        <a href="{{ route('vehicles.index') }}" class="text-red-400">Volver</a>
+                        <a href="{{ route('vehicles.index') }}"
+                            class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 
+                            font-medium rounded-lg py-3 font-bold text-sm px-5 dark:bg-red-600 dark:hover:bg-red-700
+                            focus:outline-none dark:focus:ring-red-800">VOLVER</a>
 
-                        <input type="submit" value="Enviar" class="text-green-400 rounded">
+                        <button type="submit"
+                            class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 
+                            font-medium rounded-lg py-3 font-bold text-sm px-5 dark:bg-green-600 dark:hover:bg-green-700
+                            focus:outline-none dark:focus:ring-green-800">ENVIAR
+                        </button>
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </x-app-layout>

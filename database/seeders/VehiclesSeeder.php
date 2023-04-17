@@ -34,7 +34,7 @@ class VehiclesSeeder extends Seeder
             'total_time' => null,
             'final_cost' => null,
             'created_by' => 'Administrador',
-            'is_parked' => 'FALSE',
+            'is_parked' => 'TRUE',
         ]);
     }
 }

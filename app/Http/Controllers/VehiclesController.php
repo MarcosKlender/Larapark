@@ -39,7 +39,7 @@ class VehiclesController extends Controller
 
         $vehicle->save();
 
-        return redirect()->route('vehicles.index');
+        return redirect()->route('vehicles.index')->with('success','VEHÍCULO CREADO');
     }
 
     public function show(Vehicles $vehicles)
@@ -70,14 +70,14 @@ class VehiclesController extends Controller
             'created_by' => $request->created_by,
         ]);
 
-        return redirect()->route('vehicles.index');
+        return redirect()->route('vehicles.index')->with('success','VEHÍCULO EDITADO');
     }
 
     public function destroy(Vehicles $vehicle)
     {
         $vehicle->delete();
 
-        return back();
+        return back()->with('deleted','VEHÍCULO ELIMINADO');
     }
 
     public function close(Request $request)
@@ -95,6 +95,6 @@ class VehiclesController extends Controller
             'is_parked' => $request->is_parked,
         ]);
 
-        return back();
+        return back()->with('success','SALIDA MARCADA');
     }
 }
