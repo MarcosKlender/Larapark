@@ -19,6 +19,10 @@
                     <x-nav-link :href="route('vehicles.index')" :active="request()->routeIs('vehicles.*')">
                         {{ __('Vehículos') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('rates.index')" :active="request()->routeIs('rates.*')">
+                        {{ __('Tarifas') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -82,6 +86,10 @@
 
             <x-responsive-nav-link :href="route('vehicles.index')" :active="request()->routeIs('vehicles.*')">
                 {{ __('Vehículos') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('rates.index')" :active="request()->routeIs('rates.*')">
+                {{ __('Tarifas') }}
             </x-responsive-nav-link>
         </div>
 

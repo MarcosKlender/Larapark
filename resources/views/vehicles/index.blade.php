@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
         <h2
-            class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight flex items-center justify-between">
+            class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight flex items-center justify-between h-6">
             {{ __('Vehículos') }}
 
             <a href="{{ route('vehicles.create') }}"
-                class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg py-3 font-bold
+                class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-bold rounded-lg py-3
                 text-sm px-5 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">REGISTRAR</a>
         </h2>
     </x-slot>

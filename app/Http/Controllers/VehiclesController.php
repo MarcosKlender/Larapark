@@ -14,9 +14,9 @@ class VehiclesController extends Controller
         ]);
     }
 
-    public function create(Vehicles $vehicle)
+    public function create()
     {
-        return view('vehicles.create', ['vehicle' => $vehicle]);
+        return view('vehicles.create');
     }
 
     public function store(Request $request)
