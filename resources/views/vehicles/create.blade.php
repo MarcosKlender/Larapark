@@ -20,8 +20,9 @@
                                 @enderror
                             </span>
                             <select name="type" class="text-black rounded border-gray-200 w-full mb-4">
-                                <option value="LIVIANO">LIVIANO</option>
-                                <option value="MOTO">MOTO</option>
+                                @foreach ($types as $type)
+                                    <option value="{{ $type }}">{{ $type }}</option>
+                                @endforeach
                             </select>
                         </div>
 

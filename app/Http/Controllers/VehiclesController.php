@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rates;
 use App\Models\Vehicles;
 use Illuminate\Http\Request;
 
@@ -9,14 +10,21 @@ class VehiclesController extends Controller
 {
     public function index()
     {
+        $today = \Carbon\Carbon::today()->toDateString();
+
         return view('vehicles.index', [
-            'vehicles' => Vehicles::orderBy('start_time', 'desc')->get()
+            'vehicles' => Vehicles::where('is_parked', TRUE)
+                ->orWhere('start_date', $today)
+                ->orWhere('end_date', $today)
+                ->orderBy('start_time', 'desc')->get()
         ]);
     }
 
     public function create()
     {
-        return view('vehicles.create');
+        $types = Rates::pluck('name');
+
+        return view('vehicles.create', ['types' => $types]);
     }
 
     public function store(Request $request)
@@ -39,7 +47,7 @@ class VehiclesController extends Controller
 
         $vehicle->save();
 
-        return redirect()->route('vehicles.index')->with('success','VEHÍCULO CREADO');
+        return redirect()->route('vehicles.index')->with('success', 'VEHÍCULO CREADO');
     }
 
     public function show(Vehicles $vehicles)
@@ -49,7 +57,9 @@ class VehiclesController extends Controller
 
     public function edit(Vehicles $vehicle)
     {
-        return view('vehicles.edit', ['vehicle' => $vehicle]);
+        $types = Rates::pluck('name');
+
+        return view('vehicles.edit', ['vehicle' => $vehicle, 'types' => $types]);
     }
 
     public function update(Request $request, Vehicles $vehicle)
@@ -70,22 +80,33 @@ class VehiclesController extends Controller
             'created_by' => $request->created_by,
         ]);
 
-        return redirect()->route('vehicles.index')->with('success','VEHÍCULO EDITADO');
+        return redirect()->route('vehicles.index')->with('success', 'VEHÍCULO EDITADO');
     }
 
     public function destroy(Vehicles $vehicle)
     {
         $vehicle->delete();
 
-        return back()->with('deleted','VEHÍCULO ELIMINADO');
+        return back()->with('deleted', 'VEHÍCULO ELIMINADO');
+    }
+
+    public function dashboard()
+    {
+        $vehicles_count = Vehicles::count();
+        $active_count = Vehicles::where('is_parked', TRUE)->count();
+        $money_count = Vehicles::where('is_parked', FALSE)->sum('final_cost');
+
+        return view('dashboard', ['vehicles_count' => $vehicles_count, 'active_count' => $active_count, 'money_count' => $money_count]);
     }
 
     public function close(Request $request)
     {
         $vehicle = Vehicles::find($request->id);
+        $type = $vehicle->type;
+        $cost = Rates::where('name', $type)->value('cost_per_hour');
 
         $total_hours = substr((int)$request->total_time, 0, 2) + 1;
-        $total_cost = $total_hours * 1;
+        $total_cost = $total_hours * $cost;
 
         $vehicle->update([
             'end_date' => $request->end_date,
@@ -95,6 +116,6 @@ class VehiclesController extends Controller
             'is_parked' => $request->is_parked,
         ]);
 
-        return back()->with('success','SALIDA MARCADA');
+        return back()->with('success', 'SALIDA MARCADA');
     }
 }

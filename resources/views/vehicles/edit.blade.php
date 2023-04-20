@@ -22,9 +22,10 @@
                                 @enderror
                             </span>
                             <select name="type" class="text-black rounded border-gray-200 w-full mb-4">
-                                <option value="LIVIANO" {{ $vehicle->type == 'LIVIANO' ? 'selected' : '' }}>LIVIANO
-                                </option>
-                                <option value="MOTO" {{ $vehicle->type == 'MOTO' ? 'selected' : '' }}>MOTO</option>
+                                @foreach ($types as $type)
+                                    <option value="{{ $type }}" {{ $vehicle->type == $type ? 'selected' : '' }}>
+                                        {{ $type }}</option>
+                                @endforeach
                             </select>
                         </div>
 
