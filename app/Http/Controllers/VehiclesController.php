@@ -11,13 +11,14 @@ class VehiclesController extends Controller
     public function index()
     {
         $today = \Carbon\Carbon::today()->toDateString();
+        $vehicles = Vehicles::where('is_parked', TRUE)
+            ->orWhere('start_date', $today)
+            ->orWhere('end_date', $today)
+            ->orderBy('start_date', 'desc')
+            ->orderBy('start_time', 'desc')
+            ->get();
 
-        return view('vehicles.index', [
-            'vehicles' => Vehicles::where('is_parked', TRUE)
-                ->orWhere('start_date', $today)
-                ->orWhere('end_date', $today)
-                ->orderBy('start_time', 'desc')->get()
-        ]);
+        return view('vehicles.index', ['vehicles' => $vehicles]);
     }
 
     public function create()

@@ -28,7 +28,7 @@
                         </div>
                         <div class="grid gap-3">
                             <span>TOTAL RECAUDADO</span>
-                            <b class="text-5xl">{{ $money_count }}</b>
+                            <b class="text-5xl">$ {{ $money_count }}</b>
                         </div>
                     </div>
                 </div>

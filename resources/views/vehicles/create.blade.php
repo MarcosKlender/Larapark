@@ -19,11 +19,17 @@
                                     *{{ $message }}
                                 @enderror
                             </span>
-                            <select name="type" class="text-black rounded border-gray-200 w-full mb-4">
-                                @foreach ($types as $type)
-                                    <option value="{{ $type }}">{{ $type }}</option>
-                                @endforeach
-                            </select>
+                            @if ($types->count() == 0)
+                                <select class="text-black rounded border-gray-200 w-full mb-4" disabled>
+                                    <option>DEBES CREAR UNA TARIFA PRIMERO</option>
+                                </select>
+                            @else
+                                <select name="type" class="text-black rounded border-gray-200 w-full mb-4">
+                                    @foreach ($types as $type)
+                                        <option value="{{ $type }}">{{ $type }}</option>
+                                    @endforeach
+                                </select>
+                            @endif
                         </div>
 
                         <div>
