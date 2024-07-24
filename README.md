@@ -1,45 +1,110 @@
-# Larapark - Control de Parqueaderos
- Administra tu parqueadero o estacionamiento de la manera más eficiente con este sistema web, ¡totalmente gratuito!
- 
+<a id="readme-top"></a>
+
+<div align="center">
+
+![Laravel](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/100px-Laravel.svg.png)
+
+</div>
+
+<h1 align="center">Larapark</h1>
+
+<div align="center">
+
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
+
+Manage your parking lot in the most efficient way, totally free!
+
+</div>
+
+![Vehicles](https://i.ibb.co/mTXjdbh/M-dulo-Veh-culos.png)
+
+
+## Table of Contents
+
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#screenshots">Screenshots</a></li>
+    <li><a href="#license">License</a></li>
+  </ol>
+
+
+## About The Project
+
+Larapark is a web-based parking management system designed to streamline the administration of parking lots and spaces. Built with Laravel, this free application provides a user-friendly interface and essential features for efficient parking management.
+
+Key functionalities include vehicle registration, tracking of active vehicles, billing calculations, and comprehensive tariff management. Users can easily monitor total revenue, manage vehicle records, and customize parking rates. With dark mode compatibility and a robust authentication system, Larapark ensures a secure and visually appealing experience for parking lot operators. This project aims to enhance operational efficiency and improve the overall management of parking facilities. 
+
+<p align="right"><a href="#readme-top">Back to top ⬆️</a></p>
+
+
+## Getting Started
+
+### Prerequisites
+
+- **Laravel 10**
+- **Composer**
+
+### Installation
+
+1. Clone this repo to your computer:
+   ```sh
+   git clone git@github.com:MarcosKlender/Larapark.git
+   ```
+2. Update (if needed) and install dependencies with:
+   ```sh
+   cd Larapark
+   composer update
+   composer install
+   ```
+3. Use this to create your own `.env` file:
+   ```sh
+   cp .env.example .env
+   ```
+4. Update the `.env` file with your database credentials and run:
+   ```sh
+   php artisan migrate --seed
+   php artisan key:generate
+   ```
+5. Launch the local server and start using the app:
+   ```sh
+   php artisan serve
+   ```
+6. Use the default credentials (don't forget to change it):
+   ```sh
+   Email: admin@larapark.com
+   Password: admin123
+   ```
+
+<p align="right"><a href="#readme-top">Back to top ⬆️</a></p>
+
+
+## Screenshots
+
  ![Login](https://i.ibb.co/hgF03gq/Login.png)
- 
- Este software es compatible con el modo oscuro, cuenta con un completo sistema de autenticación y los módulos que detallaré a continuación:
 
-# Módulo Escritorio
+![Dashboard](https://i.ibb.co/L8893NV/Escritorio-Oscuro.png)
 
-![Escritorio](https://i.ibb.co/L8893NV/Escritorio-Oscuro.png)
+![History](https://i.ibb.co/b1w64mT/M-dulo-Historial.png)
 
-- Breve bienvenida al sistema.
-- Número total de vehículos registrados.
-- Número de vehículos activos.
-- Monto total recaudado entre todos los vehículos finalizados.
+![Tariff](https://i.ibb.co/Zxdmq7F/M-dulo-Tarifas.png)
 
-# Módulo Vehículos
+<p align="right"><a href="#readme-top">Back to top ⬆️</a></p>
 
-![Vehículos](https://i.ibb.co/mTXjdbh/M-dulo-Veh-culos.png)
 
-- Registro de vehículos con tipo y placa del mismo.
-- Edición y eliminación de vehículos registrados.
-- Función de marcar la salida de vehículos para el cálculo del valor a cobrar.
+## License
 
-# Módulo Historial
+Distributed under the MIT License. This app doesn't collect any information at all.
 
-![Historial](https://i.ibb.co/b1w64mT/M-dulo-Historial.png)
-
-- Filtro de fechas para la búsqueda de registros antiguos.
-- Listado más detallado de los vehículos registrados.
-
-# Módulo Tarifas
-
-![Tarifas](https://i.ibb.co/Zxdmq7F/M-dulo-Tarifas.png)
-
-- Creación de tarifas con nombre y costo por hora.
-- Edición y eliminación de tarifas registradas.
-
-# Tutorial - ¿Cómo instalar Larapark? (PRÓXIMAMENTE)
-
-Si necesitas ayuda para implementarlo o deseas que desarrolle funcionalidades específicas para ti, [no dudes en contactarme](https://marcosklender.com).
-
-# Política de Privacidad
-
-Este sistema no recopila información en lo absoluto, siéntete libre de utilizarlo con tranquilidad.
+<p align="right"><a href="#readme-top">Back to top ⬆️</a></p>
