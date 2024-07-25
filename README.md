@@ -92,7 +92,7 @@ Key functionalities include vehicle registration, tracking of active vehicles, b
 
 ## Screenshots
 
- ![Login](https://i.ibb.co/hgF03gq/Login.png)
+![Login](https://i.ibb.co/hgF03gq/Login.png)
 
 ![Dashboard](https://i.ibb.co/L8893NV/Escritorio-Oscuro.png)
 
