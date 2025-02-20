@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    // Recuperación del id del vehículo para borrarlo a través del modal
+    $("[data-modal-toggle='delete-modal']").on("click", function () {
+        let vehicleId = $(this).data("vehicle-id");
+        $("#deleteVehicleForm").attr("action", `/vehicles/${vehicleId}`);
+    });
+
     $(".modalToggleButton").click(function () {
         // Creación de constantes con los valores del botón Modal Toggle
         const vehicleId = $(this).attr("data-id");

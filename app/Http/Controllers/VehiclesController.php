@@ -23,7 +23,7 @@ class VehiclesController extends Controller
 
     public function create()
     {
-        $types = Rates::pluck('name');
+        $types = Rates::orderBy('cost_per_hour', 'asc')->pluck('name');
 
         return view('vehicles.create', ['types' => $types]);
     }
@@ -58,7 +58,7 @@ class VehiclesController extends Controller
 
     public function edit(Vehicles $vehicle)
     {
-        $types = Rates::pluck('name');
+        $types = Rates::orderBy('cost_per_hour', 'asc')->pluck('name');
 
         return view('vehicles.edit', ['vehicle' => $vehicle, 'types' => $types]);
     }

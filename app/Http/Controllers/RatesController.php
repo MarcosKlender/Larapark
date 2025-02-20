@@ -10,7 +10,7 @@ class RatesController extends Controller
     public function index()
     {
         return view('rates.index', [
-            'rates' => Rates::orderBy('id', 'asc')->get()
+            'rates' => Rates::orderBy('cost_per_hour', 'asc')->get()
         ]);
     }
 
