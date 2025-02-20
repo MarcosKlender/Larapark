@@ -25,19 +25,19 @@
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
+                                    Fecha
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Tipo
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Placa
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Estado
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Fecha
-                                </th>
-                                <th scope="col" class="px-6 py-3">
                                     Hora Entrada
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Hora Salida
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Tiempo Total
@@ -51,6 +51,9 @@
                             @foreach ($vehicles as $vehicle)
                                 <tr
                                     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <td class="px-6 py-4 dark:text-white">
+                                        {{ \Carbon\Carbon::parse($vehicle->start_date)->format('d-m-Y') }}
+                                    </td>
                                     <td scope="row" class="px-6 py-4 dark:text-white">
                                         {{ $vehicle->type }}
                                     </td>
@@ -58,19 +61,10 @@
                                         {{ $vehicle->plate }}
                                     </td>
                                     <td class="px-6 py-4 dark:text-white">
-                                        @if ($vehicle->is_parked == '1')
-                                            <span
-                                                class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">ACTIVO</span>
-                                        @else
-                                            <span
-                                                class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">FINALIZADO</span>
-                                        @endif
-                                    </td>
-                                    <td class="px-6 py-4 dark:text-white">
-                                        {{ \Carbon\Carbon::parse($vehicle->start_date)->format('d-m-Y') }}
-                                    </td>
-                                    <td class="px-6 py-4 dark:text-white">
                                         {{ $vehicle->start_time }}
+                                    </td>
+                                    <td class="px-6 py-4 dark:text-white">
+                                        {{ $vehicle->end_time }}
                                     </td>
                                     <td class="px-6 py-4 dark:text-white">
                                         {{ $vehicle->total_time }}
