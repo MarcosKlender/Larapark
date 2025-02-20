@@ -62,26 +62,41 @@ Key functionalities include vehicle registration, tracking of active vehicles, b
    ```sh
    git clone git@github.com:MarcosKlender/Larapark.git
    ```
-2. Update (if needed) and install dependencies with:
+2. Install composer dependencies with:
    ```sh
    cd Larapark
-   composer update
    composer install
    ```
-3. Use this to create your own `.env` file:
+3. Install npm dependencies with:
+   ```sh
+   npm install
+   ```
+   or
+   ```sh
+   pnpm install
+   ```
+4. Use this to create your own `.env` file:
    ```sh
    cp .env.example .env
    ```
-4. Update the `.env` file with your database credentials and run:
+5. Update the `.env` file with your database credentials and run:
    ```sh
    php artisan migrate --seed
    php artisan key:generate
    ```
-5. Launch the local server and start using the app:
+6. Launch the local server with:
    ```sh
    php artisan serve
    ```
-6. Use the default credentials (don't forget to change it):
+7. In other tab, launch the npm server and start using the app:
+   ```sh
+   npm run dev
+   ```
+   or
+   ```sh
+   pnpm run dev
+   ```
+8. Use the default credentials (don't forget to change it):
    ```sh
    Email: admin@larapark.com
    Password: admin123

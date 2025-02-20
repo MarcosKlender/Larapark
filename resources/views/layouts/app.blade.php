@@ -32,8 +32,8 @@
 
         <!-- Page Heading -->
         @if (isset($header))
-            <header class="bg-white dark:bg-gray-800 shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <header class="bg-white shadow dark:bg-gray-800">
+                <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
             </header>
@@ -46,7 +46,7 @@
 
         <!-- MarcosKlender Footer -->
         <footer
-            class="fixed bottom-0 left-0 z-20 w-full h-1 p-4 bg-white border-t border-gray-200 shadow flex items-center justify-center md:p-6 dark:bg-gray-800 dark:border-gray-600">
+            class="fixed bottom-0 left-0 z-20 flex items-center justify-center w-full h-1 p-4 bg-white border-t border-gray-200 shadow md:p-6 dark:bg-gray-800 dark:border-gray-600">
             <p class="inline-flex items-center text-sm text-gray-500 sm:text-center dark:text-gray-400">
                 <span class="mr-1">
                     Hecho con
@@ -58,7 +58,7 @@
                         clip-rule="evenodd" />
                 </svg>
                 <span class="ml-1">
-                    por <a href="https://marcosklender.com/" class="hover:underline text-blue-600 dark:text-blue-500" target="_blank">MarcosKlender</a>
+                    por <a href="https://www.linkedin.com/in/marcosklender/?locale=en_US" class="text-blue-600 hover:underline dark:text-blue-500" target="_blank">MarcosKlender</a>
                 </span>
             </p>
         </footer>
