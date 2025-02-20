@@ -58,7 +58,8 @@
                         clip-rule="evenodd" />
                 </svg>
                 <span class="ml-1">
-                    por <a href="https://www.linkedin.com/in/marcosklender/?locale=en_US" class="text-blue-600 hover:underline dark:text-blue-500" target="_blank">MarcosKlender</a>
+                    por <a href="https://www.linkedin.com/in/marcosklender/?locale=en_US"
+                        class="text-blue-600 hover:underline dark:text-blue-500" target="_blank">MarcosKlender</a>
                 </span>
             </p>
         </footer>

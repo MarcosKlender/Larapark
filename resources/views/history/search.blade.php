@@ -1,27 +1,26 @@
 <x-app-layout>
     <x-slot name="header">
         <h2
-            class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight flex items-center justify-between h-6">
+            class="flex items-center justify-between h-6 text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
             {{ __('Historial') }}
 
             <a href="{{ route('history.index') }}"
-                class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-bold rounded-lg py-3
-                text-sm px-5 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">NUEVA
+                class="px-5 py-3 text-sm font-bold text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">NUEVA
                 BÚSQUEDA</a>
         </h2>
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 
             @if ($vehicles->isEmpty())
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900 dark:text-gray-100 text-center">
+                <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
+                    <div class="p-6 text-center text-gray-900 dark:text-gray-100">
                         <span>¡No se han encontrado registros entre las fechas {{ $from }} y {{ $to }}!</span>
                     </div>
                 </div>
             @else
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-4">
+                <div class="relative mb-4 overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>

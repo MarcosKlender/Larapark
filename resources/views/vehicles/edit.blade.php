@@ -1,19 +1,19 @@
 <x-app-layout>
     <x-slot name="header">
         <h2
-            class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight flex items-center justify-between">
+            class="flex items-center justify-between text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
             {{ __('Editar Vehículo') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="relative p-5 overflow-x-auto shadow-md sm:rounded-lg">
                 <form action="{{ route('vehicles.update', $vehicle) }}" method="POST">
                     @method('PUT')
                     @csrf
 
-                    <div class="text-white grid lg:grid-cols-2 gap-3">
+                    <div class="grid gap-3 text-white lg:grid-cols-2">
                         <div>
                             <label class="text-black dark:text-white">Tipo de Vehículo</label>
                             <span class="ml-3 text-red-400">
@@ -21,7 +21,7 @@
                                     *{{ $message }}
                                 @enderror
                             </span>
-                            <select name="type" class="text-black rounded border-gray-200 w-full mb-4">
+                            <select name="type" class="w-full mb-4 text-black border-gray-200 rounded">
                                 @foreach ($types as $type)
                                     <option value="{{ $type }}" {{ $vehicle->type == $type ? 'selected' : '' }}>
                                         {{ $type }}</option>
@@ -37,7 +37,7 @@
                                 @enderror
                             </span>
                             <input type="text" name="plate"
-                                class="text-black rounded border-gray-200 w-full mb-4 uppercase" maxlength="10"
+                                class="w-full mb-4 text-black uppercase border-gray-200 rounded" maxlength="10"
                                 value="{{ old('plate', $vehicle->plate) }}">
                         </div>
 
@@ -49,7 +49,7 @@
                                 @enderror
                             </span>
                             <input type="date" name="start_date"
-                                class="text-black rounded border-gray-200 w-full mb-4"
+                                class="w-full mb-4 text-black border-gray-200 rounded"
                                 value="{{ old('start_date', $vehicle->start_date) }}">
                         </div>
 
@@ -61,23 +61,19 @@
                                 @enderror
                             </span>
                             <input type="time" name="start_time"
-                                class="text-black rounded border-gray-200 w-full mb-4" step="1"
+                                class="w-full mb-4 text-black border-gray-200 rounded" step="1"
                                 value="{{ old('start_time', $vehicle->start_time) }}">
                         </div>
 
                         <input type="hidden" name="created_by" value="{{ Auth::user()->name }}">
                     </div>
 
-                    <div class="mt-4 mb-4 flex items-center justify-between">
+                    <div class="flex items-center justify-between mt-4 mb-4">
                         <a href="{{ route('vehicles.index') }}"
-                            class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 
-                            font-medium rounded-lg py-3 font-bold text-sm px-5 dark:bg-red-600 dark:hover:bg-red-700
-                            focus:outline-none dark:focus:ring-red-800">VOLVER</a>
+                            class="px-5 py-3 text-sm font-medium font-bold text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">VOLVER</a>
 
                         <button type="submit"
-                            class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 
-                            font-medium rounded-lg py-3 font-bold text-sm px-5 dark:bg-green-600 dark:hover:bg-green-700
-                            focus:outline-none dark:focus:ring-green-800">ENVIAR
+                            class="px-5 py-3 text-sm font-medium font-bold text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">ENVIAR
                         </button>
                     </div>
                 </form>

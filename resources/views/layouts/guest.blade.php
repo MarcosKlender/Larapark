@@ -26,22 +26,22 @@
     </script>
 </head>
 
-<body class="font-sans text-gray-900 antialiased">
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
+<body class="font-sans antialiased text-gray-900">
+    <div class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0 dark:bg-gray-900">
         <div>
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <x-application-logo class="w-20 h-20 text-gray-500 fill-current" />
             </a>
         </div>
 
         <div
-            class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
+            class="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-md dark:bg-gray-800 sm:rounded-lg">
             {{ $slot }}
         </div>
 
         <!-- MarcosKlender Footer -->
         <footer
-            class="fixed bottom-0 left-0 z-20 w-full h-1 p-4 bg-white border-t border-gray-200 shadow flex items-center justify-center md:p-6 dark:bg-gray-800 dark:border-gray-600">
+            class="fixed bottom-0 left-0 z-20 flex items-center justify-center w-full h-1 p-4 bg-white border-t border-gray-200 shadow md:p-6 dark:bg-gray-800 dark:border-gray-600">
             <p class="inline-flex items-center text-sm text-gray-500 sm:text-center dark:text-gray-400">
                 <span class="mr-1">
                     Hecho con
@@ -53,11 +53,12 @@
                         clip-rule="evenodd" />
                 </svg>
                 <span class="ml-1">
-                    por <a href="https://marcosklender.com/" class="hover:underline text-blue-600 dark:text-blue-500" target="_blank">MarcosKlender</a>
+                    por <a href="https://marcosklender.com/" class="text-blue-600 hover:underline dark:text-blue-500"
+                        target="_blank">MarcosKlender</a>
                 </span>
             </p>
         </footer>
-        
+
     </div>
 </body>
 
