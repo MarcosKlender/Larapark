@@ -5,8 +5,7 @@
             {{ __('Tarifas') }}
 
             <a href="{{ route('rates.create') }}"
-                class="px-5 py-3 text-sm font-bold text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">NUEVA
-                TARIFA</a>
+                class="px-5 py-3 text-sm font-bold text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">CREAR</a>
         </h2>
     </x-slot>
 
