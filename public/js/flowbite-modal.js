@@ -1,61 +1,69 @@
 $(document).ready(function () {
-    // Recuperación del id del vehículo para borrarlo a través del modal
+    let intervalId = null;
+
+    // Manejo de eliminación de vehículo
     $("[data-modal-toggle='delete-modal']").on("click", function () {
         let vehicleId = $(this).data("vehicle-id");
         $("#deleteVehicleForm").attr("action", `/vehicles/${vehicleId}`);
     });
 
     $(".modalToggleButton").click(function () {
-        // Creación de constantes con los valores del botón Modal Toggle
-        const vehicleId = $(this).attr("data-id");
-        const vehicleType = $(this).attr("data-type");
-        const vehiclePlate = $(this).attr("data-plate");
-        const vehicleStartTime = $(this).attr("data-start-time");
+        const vehicleId = $(this).data("id");
+        const vehicleType = $(this).data("type");
+        const vehiclePlate = $(this).data("plate");
+        const vehicleStartTime = $(this).data("start-time");
 
-        // Título dinámico del modal
-        $(".modalTitle").html(
-            "TIPO: " + vehicleType + " | PLACA: " + vehiclePlate
-        );
+        $(".modalTitle").html(`TIPO: ${vehicleType} | PLACA: ${vehiclePlate}`);
 
-        // Asignación del ID Vehículo
         $("#modalVehicleId").val(vehicleId);
-
-        // Asignación de la hora de entrada del Vehículo
         $("#modalStartTime").val(vehicleStartTime);
 
-        // INICIO DEL SETINTERVAL
-        setInterval(function () {
-            // Asignación de la hora de salida del Vehículo
-            var currentTime = new Date().toLocaleTimeString();
+        if (intervalId) {
+            clearInterval(intervalId);
+        }
+
+        function updateExitTime() {
+            let now = new Date();
+
+            // Formatear la hora actual en 24H (sin AM/PM)
+            let hours = now.getHours().toString().padStart(2, "0");
+            let minutes = now.getMinutes().toString().padStart(2, "0");
+            let seconds = now.getSeconds().toString().padStart(2, "0");
+
+            let currentTime = `${hours}:${minutes}:${seconds}`;
             $("#modalEndTime").val(currentTime);
 
-            // Asignación del tiempo total del Vehículo
-            var hora1 = vehicleStartTime;
-            var hora2 = currentTime;
+            // Convertir Hora de Entrada y Hora Actual a milisegundos
+            let startDate = new Date();
+            let [startHours, startMinutes, startSeconds] = vehicleStartTime.split(":").map(Number);
+            startDate.setHours(startHours, startMinutes, startSeconds, 0);
 
-            var segundos1 =
-                +hora1.split(":")[0] * 3600 +
-                +hora1.split(":")[1] * 60 +
-                +hora1.split(":")[2];
-            var segundos2 =
-                +hora2.split(":")[0] * 3600 +
-                +hora2.split(":")[1] * 60 +
-                +hora2.split(":")[2];
+            let endDate = new Date();
+            endDate.setHours(now.getHours(), now.getMinutes(), now.getSeconds(), 0);
 
-            var diferencia = Math.abs(segundos2 - segundos1);
-            var horas = Math.floor(diferencia / 3600);
-            var minutos = Math.floor((diferencia % 3600) / 60);
-            var segundos = diferencia % 60;
+            // Calcular la diferencia en milisegundos
+            let diffMilliseconds = endDate - startDate;
+            if (diffMilliseconds < 0) {
+                diffMilliseconds += 86400000; // Manejo si pasa la medianoche
+            }
 
-            var tiempo =
-                ("0" + horas).slice(-2) +
-                ":" +
-                ("0" + minutos).slice(-2) +
-                ":" +
-                ("0" + segundos).slice(-2);
+            // Convertir la diferencia en HH:MM:SS
+            let diffHours = Math.floor(diffMilliseconds / (1000 * 60 * 60));
+            let diffMinutes = Math.floor((diffMilliseconds % (1000 * 60 * 60)) / (1000 * 60));
+            let diffSeconds = Math.floor((diffMilliseconds % (1000 * 60)) / 1000);
 
-            $("#modalTotalTime").val(tiempo);
-        }, 1000);
-        // FIN DEL SETINTERVAL
+            let totalTime = `${String(diffHours).padStart(2, "0")}:${String(diffMinutes).padStart(2, "0")}:${String(diffSeconds).padStart(2, "0")}`;
+            $("#modalTotalTime").val(totalTime);
+        }
+
+        updateExitTime();
+        intervalId = setInterval(updateExitTime, 1000);
+    });
+
+    $("[data-modal-hide='staticModal']").on("click", function () {
+        if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
     });
 });

@@ -14,6 +14,7 @@ class VehiclesController extends Controller
         $vehicles = Vehicles::where('is_parked', TRUE)
             ->orWhere('start_date', $today)
             ->orWhere('end_date', $today)
+            ->orderBy('is_parked', 'desc')
             ->orderBy('start_date', 'desc')
             ->orderBy('start_time', 'desc')
             ->get();
@@ -106,13 +107,20 @@ class VehiclesController extends Controller
         $type = $vehicle->type;
         $cost = Rates::where('name', $type)->value('cost_per_hour');
 
-        $total_hours = substr((int)$request->total_time, 0, 2) + 1;
-        $total_cost = $total_hours * $cost;
+        // Asegurar que total_time no tiene AM/PM y está en el formato correcto
+        $total_time = $request->total_time; // Se recibe en HH:MM:SS
+        list($hours, $minutes, $seconds) = explode(':', $total_time);
+
+        // Convertir a número total de horas con decimales
+        $total_hours = (int)$hours + ((int)$minutes / 60);
+
+        // Calcular el costo total
+        $total_cost = ceil($total_hours) * $cost; // Se redondea hacia arriba para cobrar hora completa
 
         $vehicle->update([
             'end_date' => $request->end_date,
             'end_time' => $request->end_time,
-            'total_time' => $request->total_time,
+            'total_time' => $total_time,
             'final_cost' => $total_cost,
             'is_parked' => $request->is_parked,
         ]);
