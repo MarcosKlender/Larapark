@@ -19,7 +19,7 @@ Manage your parking lot in the most efficient way, totally free!
 
 </div>
 
-![Vehicles](public/screenshots/Vehicles.webp)
+![Vehicles](public/screenshots/Vehicles.jpg)
 
 
 ## Table of Contents
@@ -108,21 +108,21 @@ Key functionalities include vehicle registration, tracking of active vehicles, b
 ## Screenshots
 
 ### Login
-![Login](public/screenshots/Login.webp)
+![Login](public/screenshots/Login.jpg)
 
 ### Dashboard
-![Dashboard](public/screenshots/Dashboard.webp)
+![Dashboard](public/screenshots/Dashboard.jpg)
 
 ### Vehicles
-![Vehicles](public/screenshots/Vehicles.webp)
+![Vehicles](public/screenshots/Vehicles.jpg)
 
 ### Rates
-![Rates](public/screenshots/Rates.webp)
+![Rates](public/screenshots/Rates.jpg)
 
 ### History
-![History](public/screenshots/History.webp)
+![History](public/screenshots/History.jpg)
 
-![Search](public/screenshots/Search.webp)
+![Search](public/screenshots/Search.jpg)
 
 <p align="right"><a href="#readme-top">Back to top ⬆️</a></p>
 
