@@ -72,7 +72,7 @@
                                     </td>
                                     <td class="px-6 py-4 dark:text-white">
                                         @if ($vehicle->is_parked == '1')
-                                            <p>----------</p>
+                                            <span class="opacity-50 dark:opacity-25">00:00:00</span>
                                         @else
                                             {{ $vehicle->total_time }}
                                         @endif
