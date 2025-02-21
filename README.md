@@ -19,7 +19,7 @@ Manage your parking lot in the most efficient way, totally free!
 
 </div>
 
-![Vehicles](https://i.ibb.co/mTXjdbh/M-dulo-Veh-culos.png)
+![Vehicles](public/screenshots/Vehicles.webp)
 
 
 ## Table of Contents
@@ -107,13 +107,22 @@ Key functionalities include vehicle registration, tracking of active vehicles, b
 
 ## Screenshots
 
-![Login](https://i.ibb.co/hgF03gq/Login.png)
+### Login
+![Login](public/screenshots/Login.webp)
 
-![Dashboard](https://i.ibb.co/L8893NV/Escritorio-Oscuro.png)
+### Dashboard
+![Dashboard](public/screenshots/Dashboard.webp)
 
-![History](https://i.ibb.co/b1w64mT/M-dulo-Historial.png)
+### Vehicles
+![Vehicles](public/screenshots/Vehicles.webp)
 
-![Tariff](https://i.ibb.co/Zxdmq7F/M-dulo-Tarifas.png)
+### Rates
+![Rates](public/screenshots/Rates.webp)
+
+### History
+![History](public/screenshots/History.webp)
+
+![Search](public/screenshots/Search.webp)
 
 <p align="right"><a href="#readme-top">Back to top ⬆️</a></p>
 
