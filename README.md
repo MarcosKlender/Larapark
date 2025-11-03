@@ -19,7 +19,7 @@ Manage your parking lot in the most efficient way, totally free!
 
 </div>
 
-![Vehicles](public/screenshots/Vehicles.jpg)
+![Screenshot](public/screenshots/screenshot-2025.webp)
 
 
 ## Table of Contents
